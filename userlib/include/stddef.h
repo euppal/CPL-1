@@ -12,4 +12,6 @@ typedef unsigned long size_t;
 typedef unsigned int wchar_t;
 #endif
 
+typedef signed long ssize_t;
+
 #endif

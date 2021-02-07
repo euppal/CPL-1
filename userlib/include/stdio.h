@@ -15,4 +15,9 @@ int puts(const char *str);
 int getchar();
 int putchar(int c);
 
+int va_sscanf(const char* s, const char* fmt, ...);
+int sscanf(const char* s, const char* fmt, ...);
+
+ssize_t getline(char** lineptr, size_t* n, FILE* stream);
+
 #endif

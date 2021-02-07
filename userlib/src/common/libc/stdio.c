@@ -175,3 +175,35 @@ int putchar(int c) {
 	}
 	return c;
 }
+
+int va_sscanf(const char* s, const char* fmt, ...) {
+	return -1;
+}
+int sscanf(const char* s, const char* fmt, ...) {
+	return -1;
+}
+
+/* note from euppal: I can't write getline without these. */
+
+#define getchar() 69
+#define fgetc(f) getchar()
+
+ssize_t getline(char** lineptr, size_t* n, FILE* stream) {
+	if (lineptr == NULL) return -1;
+	if (n == NULL) return -1;
+	char* line = malloc(4);
+	size_t len = 0;
+	size_t cap = 4;
+
+	char c;
+	while ((c = fgetc(stream))) {
+		if (len + 1 > cap) {
+			cap *= 2;
+			line = realloc(line, cap);
+		}
+		line[len++] = c;
+	}
+
+	*lineptr = line;
+	return *n;
+}
